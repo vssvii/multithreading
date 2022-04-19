@@ -46,8 +46,13 @@ class ProfileViewController: UIViewController {
         posts.append(post1)
         posts.append(post2)
         posts.append(post3)
-        
-        view.backgroundColor = .systemCyan
+
+
+            #if DEBUG
+            view.backgroundColor = .systemCyan
+            #else
+            view.backgroundColor = .systemIndigo
+            #endif
         
         view.addSubview(tableViewM)
         
