@@ -6,7 +6,8 @@
 //
 
 import UIKit
-
+import iOSIntPackage
+import SnapKit
 
 class ProfileViewController: UIViewController {
     
@@ -18,11 +19,14 @@ class ProfileViewController: UIViewController {
         let views: Int
     }
     
+    
+    
     var posts: [Post] = []
     
     var post1 = Post(author: "Димаш Кудайберген", description: "концерт в Москве", image: UIImage(named: "dimash"), likes: 150, views: 200)
     var post2 = Post (author: "Elon Musk", description: "Waiting to launch global wi-fi", image: UIImage(named: "starlink"), likes: 400, views: 450)
     var post3 = Post(author: "Мотивация. Спорт", description: "Программа по отжиманиям", image: UIImage(named: "pushups"), likes: 150, views: 180)
+    
     
     private lazy var tableViewM: UITableView = {
         let tableViewM = UITableView(frame: .zero, style: .grouped)
@@ -46,8 +50,13 @@ class ProfileViewController: UIViewController {
         posts.append(post1)
         posts.append(post2)
         posts.append(post3)
-        
-        view.backgroundColor = .systemCyan
+
+
+            #if DEBUG
+            view.backgroundColor = .systemCyan
+            #else
+            view.backgroundColor = .systemIndigo
+            #endif
         
         view.addSubview(tableViewM)
         
