@@ -9,6 +9,8 @@ import UIKit
 
 class LogInViewController: UIViewController, UITextFieldDelegate {
     
+    
+    
     public lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = true
@@ -23,6 +25,24 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         contenView.backgroundColor = .white
         contenView.translatesAutoresizingMaskIntoConstraints = false
         return contenView
+    }()
+    
+    public lazy var login: UITextField = {
+        let login = UITextField()
+        login.layer.borderColor = UIColor.lightGray.cgColor
+        login.layer.borderWidth = 0.5
+        login.layer.cornerRadius = 10
+        login.backgroundColor = .systemGray6
+        login.textColor = .black
+        login.font = .systemFont(ofSize: 16)
+        login.autocapitalizationType = .none
+        login.autocorrectionType = UITextAutocorrectionType.no
+        login.keyboardType = UIKeyboardType.default
+        login.returnKeyType = UIReturnKeyType.done
+        login.clearButtonMode = UITextField.ViewMode.whileEditing
+        login.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
+        login.placeholder = "Login or email"
+        return login
     }()
     
     override func viewDidLoad() {
@@ -55,21 +75,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         logo.widthAnchor.constraint(equalToConstant: 100.0).isActive = true
         logo.heightAnchor.constraint(equalToConstant: 100.0).isActive = true
         
-        
-        let login = UITextField()
-        login.layer.borderColor = UIColor.lightGray.cgColor
-        login.layer.borderWidth = 0.5
-        login.layer.cornerRadius = 10
-        login.backgroundColor = .systemGray6
-        login.textColor = .black
-        login.font = .systemFont(ofSize: 16)
-        login.autocapitalizationType = .none
-        login.autocorrectionType = UITextAutocorrectionType.no
-        login.keyboardType = UIKeyboardType.default
-        login.returnKeyType = UIReturnKeyType.done
-        login.clearButtonMode = UITextField.ViewMode.whileEditing
-        login.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
-        login.placeholder = "Login or email"
         login.delegate = self
         scrollView.addSubview(login)
         
@@ -119,8 +124,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func logInPressed() {
-        let logInProfile = ProfileViewController()
+        #if DEBUG
+        let logInProfile = ProfileViewController(userService: CurrentUserService(name: "Ibragim", avatar: "", status: "") as UserService, userName: login.text!)
+        #else
+        let logInProfile = ProfileViewController(userService: TestUserService(name: "Test", avatar: "", status: "") as UserService, userName: login.text!)
         navigationController?.pushViewController(logInProfile, animated: true)
+        #endif
     }
     
     override func viewWillAppear(_ animated: Bool) {

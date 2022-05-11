@@ -8,8 +8,27 @@
 import UIKit
 import iOSIntPackage
 import SnapKit
+import Foundation
+
+
+
 
 class ProfileViewController: UIViewController {
+    
+    var userLogin = LogInViewController().login.text
+    
+    private let userService: UserService
+    
+    init(userService: UserService, userName: String) {
+        self.userService = userService
+        self.userLogin = userName
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     struct Post {
         let author: String
@@ -18,8 +37,6 @@ class ProfileViewController: UIViewController {
         let likes: Int
         let views: Int
     }
-    
-    
     
     var posts: [Post] = []
     
