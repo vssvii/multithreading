@@ -39,6 +39,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         
+        let loginInspector = LoginInspector()
+        var factory = MyLoginFactory().getLoginInspector()
+        
+        if let tabController = window?.rootViewController as? UITabBarController, let loginNavigation = tabController.viewControllers?.last as? UINavigationController, let loginController = loginNavigation.viewControllers.first as? LogInViewController {
+            loginController.delegate = loginInspector
+            }
+        
+        factory = loginInspector
+        
         return true
     }
 }

@@ -9,7 +9,7 @@ import UIKit
 
 class LogInViewController: UIViewController, UITextFieldDelegate {
     
-    
+    var delegate: LoginViewControllerDelegate?
     
     public lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -43,6 +43,25 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         login.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
         login.placeholder = "Login or email"
         return login
+    }()
+    
+    public lazy var pass: UITextField = {
+        let pass = UITextField()
+        pass.layer.borderColor = UIColor.lightGray.cgColor
+        pass.layer.borderWidth = 0.5
+        pass.layer.cornerRadius = 10
+        pass.backgroundColor = .systemGray6
+        pass.textColor = .black
+        pass.font = .systemFont(ofSize: 16)
+        pass.autocapitalizationType = .none
+        pass.isSecureTextEntry = true
+        pass.autocorrectionType = UITextAutocorrectionType.no
+        pass.keyboardType = UIKeyboardType.default
+        pass.returnKeyType = UIReturnKeyType.done
+        pass.clearButtonMode = UITextField.ViewMode.whileEditing
+        pass.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
+        pass.placeholder = "Password"
+        return pass
     }()
     
     override func viewDidLoad() {
@@ -84,21 +103,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         login.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.0).isActive = true
         login.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        let pass = UITextField()
-        pass.layer.borderColor = UIColor.lightGray.cgColor
-        pass.layer.borderWidth = 0.5
-        pass.layer.cornerRadius = 10
-        pass.backgroundColor = .systemGray6
-        pass.textColor = .black
-        pass.font = .systemFont(ofSize: 16)
-        pass.autocapitalizationType = .none
-        pass.isSecureTextEntry = true
-        pass.autocorrectionType = UITextAutocorrectionType.no
-        pass.keyboardType = UIKeyboardType.default
-        pass.returnKeyType = UIReturnKeyType.done
-        pass.clearButtonMode = UITextField.ViewMode.whileEditing
-        pass.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
-        pass.placeholder = "Password"
         pass.delegate = self
         scrollView.addSubview(pass)
         
@@ -171,3 +175,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
 }
 
+extension LogInViewController: LoginViewControllerDelegate {
+    func logInChecker(userName: String, password: String) -> Bool {
+        if userName == Checker.shared.login && password == Checker.shared.pswd {
+            return true
+        } else {
+            return false
+        }
+    }
+}
