@@ -7,16 +7,16 @@
 
 import UIKit
 
-class TestUserService: User, UserService {
+class TestUserService: UserService {
     
-    let user = User(name: "Test", avatar: "", status: "")
+    let testUser = User(name: "Test", avatar: "", status: "")
     
-    func currentUser (_ userName: String) -> String {
-        if userName == user.name {
-            return userName
+    func userNick(name: String) -> String {
+        let user = User(name: name, avatar: "", status: "")
+        if user.name == testUser.name {
+            return testUser.name
         } else {
-            print("Error!")
+            return "the username is wrong!"
         }
-        return userName
     }
 }

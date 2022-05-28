@@ -7,18 +7,16 @@
 
 import Foundation
 
-class CurrentUserService: User, UserService {
+class CurrentUserService: UserService {
     
-    let user = User(name: "Ibragim", avatar: "", status: "")
+    let currentUser = User(name: "Ibragim", avatar: "", status: "")
     
-    func currentUser (_ userName: String) -> String {
-        if userName == user.name {
-            return userName
+    func userNick(name: String) -> String {
+        let user = User(name: name, avatar: "", status: "")
+        if user.name == currentUser.name {
+            return currentUser.name
         } else {
-            print("Error!")
+            return "the username is wrong!"
         }
-        return userName
     }
-    
-
 }

@@ -7,19 +7,14 @@
 
 import Foundation
 
-protocol UserService: User {
-    
-    var name: String {get set}
-    var avatar: String {get set}
-    var status: String {get set}
-    
-    
+protocol UserService {
 }
 
 extension UserService {
     
-    func userName (_ name: String) -> User {
+    func userNick(name: String) -> User {
         let user = User(name: name, avatar: "", status: "")
         return user
     }
 }
+

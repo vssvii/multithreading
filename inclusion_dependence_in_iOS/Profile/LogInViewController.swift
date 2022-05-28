@@ -9,8 +9,6 @@ import UIKit
 
 class LogInViewController: UIViewController, UITextFieldDelegate {
     
-    
-    
     public lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = true
@@ -125,9 +123,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     @objc func logInPressed() {
         #if DEBUG
-        let logInProfile = ProfileViewController(userService: CurrentUserService(name: "Ibragim", avatar: "", status: "") as UserService, userName: login.text!)
+        let logInProfile = ProfileViewController(userService: CurrentUserService().userNick(name: login.text!) as! UserService, userName: login.text!)
+        navigationController?.pushViewController(logInProfile, animated: true)
         #else
-        let logInProfile = ProfileViewController(userService: TestUserService(name: "Test", avatar: "", status: "") as UserService, userName: login.text!)
+        let logInProfile = ProfileViewController(userService: TestUserService().userNick(name: login.text!) as! UserService, userName: login.text!)
         navigationController?.pushViewController(logInProfile, animated: true)
         #endif
     }

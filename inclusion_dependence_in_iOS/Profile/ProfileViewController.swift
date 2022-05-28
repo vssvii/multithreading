@@ -15,16 +15,15 @@ import Foundation
 
 class ProfileViewController: UIViewController {
     
-    var userLogin = LogInViewController().login.text
+    let userService: UserService?
     
-    private let userService: UserService
+    var userLogIn = LogInViewController().login.text
     
     init(userService: UserService, userName: String) {
         self.userService = userService
-        self.userLogin = userName
+        self.userLogIn = userName
         super.init(nibName: nil, bundle: nil)
     }
-
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
