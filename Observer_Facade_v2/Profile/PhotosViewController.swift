@@ -97,7 +97,9 @@ class PhotosViewController: UIViewController, UINavigationBarDelegate {
         
         navBar.setItems([navItem], animated: true)
         
-        imagePublisher?.addImagesWithTimer(time: 10, repeat: 21)
+        imagePublisher?.subscribe(loginInfo as! ImageLibrarySubscriber)
+        
+        imagePublisher?.addImagesWithTimer(time: 10, repeat: 11)
         
     }
     
@@ -131,6 +133,13 @@ class PhotosViewController: UIViewController, UINavigationBarDelegate {
             photoCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             photoCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+}
+
+extension PhotosViewController: ImageLibrarySubscriber {
+
+    func receive(images: [UIImage]) {
+        dataSource = images
     }
 }
 
@@ -180,12 +189,5 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1
-    }
-}
-
-extension PhotosViewController: ImageLibrarySubscriber {
-
-    func receive(images: [UIImage]) {
-        dataSource = images
     }
 }
