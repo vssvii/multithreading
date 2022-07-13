@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1330"
+   LastUpgradeVersion = "1340"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4B02DA4D2778C52300023AF4"
-               BuildableName = "Navigation_2.app"
-               BlueprintName = "Navigation_2"
+               BlueprintIdentifier = "4B5CD5B7280DD3C700E105B2"
+               BuildableName = "Navigation_2_release.app"
+               BlueprintName = "Navigation_2_release"
                ReferencedContainer = "container:Navigation_2.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,8 +32,8 @@
    </TestAction>
    <LaunchAction
       buildConfiguration = "Release"
-      selectedDebuggerIdentifier = ""
-      selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -50,9 +50,18 @@
             ReferencedContainer = "container:Navigation_2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "4B5CD5B7280DD3C700E105B2"
+            BuildableName = "Navigation_2_release.app"
+            BlueprintName = "Navigation_2_release"
+            ReferencedContainer = "container:Navigation_2.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
@@ -61,9 +70,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4B02DA4D2778C52300023AF4"
-            BuildableName = "Navigation_2.app"
-            BlueprintName = "Navigation_2"
+            BlueprintIdentifier = "4B5CD5B7280DD3C700E105B2"
+            BuildableName = "Navigation_2_release.app"
+            BlueprintName = "Navigation_2_release"
             ReferencedContainer = "container:Navigation_2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

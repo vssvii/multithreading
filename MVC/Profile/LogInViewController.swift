@@ -64,6 +64,21 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         return pass
     }()
     
+    private lazy var logInButton: CustomButton = {
+        let logInButton = CustomButton(backgroundColor: UIColor(named: "colorHex")!, title: "Log In", shadowHeight: 4, shadowWidth: 4, shadowRadius: 4, shadowColor: UIColor.black.cgColor, shadowOpacity: 0.4)
+        logInButton.translatesAutoresizingMaskIntoConstraints = false
+        logInButton.onTap = { [self] in
+                    #if DEBUG
+                    let logInProfile = ProfileViewController(userService: CurrentUserService(name: login.text!, avatar: "", status: "") as UserService, userName: login.text!)
+                    navigationController?.pushViewController(logInProfile, animated: true)
+                    #else
+                    let logInProfile = ProfileViewController(userService: TestUserService(name: login.text!, avatar: "", status: "") as UserService, userName: login.text!)
+                    navigationController?.pushViewController(logInProfile, animated: true)
+                    #endif
+        }
+        return logInButton
+    }()
+    
     private let inspector: LoginViewControllerDelegate
     
     init(inspector: LoginViewControllerDelegate) {
@@ -123,12 +138,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         pass.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.0).isActive = true
         pass.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        
-        let logInButton = UIButton()
-        logInButton.setBackgroundImage(UIImage(named: "blue_pixel"), for: .normal)
-        logInButton.setTitle("Log In", for: .normal)
-        logInButton.layer.cornerRadius = 10
-        logInButton.addTarget(self, action: #selector(logInPressed), for: .touchUpInside)
         scrollView.addSubview(logInButton)
         
         logInButton.translatesAutoresizingMaskIntoConstraints = false
@@ -136,16 +145,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         logInButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16.0).isActive = true
         logInButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.0).isActive = true
         logInButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-    }
-    
-    @objc func logInPressed() {
-        #if DEBUG
-        let logInProfile = ProfileViewController(userService: CurrentUserService(name: login.text!, avatar: "", status: "") as UserService, userName: login.text!)
-        navigationController?.pushViewController(logInProfile, animated: true)
-        #else
-        let logInProfile = ProfileViewController(userService: TestUserService(name: login.text!, avatar: "", status: "") as UserService, userName: login.text!)
-        navigationController?.pushViewController(logInProfile, animated: true)
-        #endif
     }
     
     override func viewWillAppear(_ animated: Bool) {

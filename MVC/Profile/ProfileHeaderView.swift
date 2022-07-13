@@ -33,15 +33,9 @@ class ProfileHeaderView: UIView {
         return avatarImageView
     }()
     
-    private var setStatusButton: UIButton = {
-        let setStatusButton = UIButton()
-        setStatusButton.backgroundColor = .blue
-        setStatusButton.setTitle("Показать статус", for: .normal)
-        setStatusButton.layer.shadowOffset = CGSize(width: 4, height: 4)
-        setStatusButton.layer.shadowRadius = 4
-        setStatusButton.layer.shadowColor = UIColor.black.cgColor
-        setStatusButton.layer.shadowOpacity = 0.7
-        setStatusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+    
+    private var setStatusButton: CustomButton = {
+        let setStatusButton = CustomButton(backgroundColor: .blue, title: "Показать статус", shadowHeight: 4, shadowWidth: 4, shadowRadius: 4, shadowColor: UIColor.black.cgColor, shadowOpacity: 0.7)
         setStatusButton.translatesAutoresizingMaskIntoConstraints = false
         return setStatusButton
     }()
@@ -69,14 +63,8 @@ class ProfileHeaderView: UIView {
         return statusTextField
     }()
     
-    private var closeButton: UIButton = {
-        let closeButton = UIButton()
-        closeButton.setTitle("Закрыть", for: .normal)
-        closeButton.backgroundColor = .systemRed
-        closeButton.layer.shadowOffset = CGSize(width: 5, height: 5)
-        closeButton.layer.shadowRadius = 3
-        closeButton.layer.shadowColor = UIColor.black.cgColor
-        closeButton.layer.shadowOpacity = 0.9
+    private var closeButton: CustomButton = {
+        let closeButton = CustomButton(backgroundColor: .systemRed, title: "Закрыть", shadowHeight: 5, shadowWidth: 5, shadowRadius: 3, shadowColor: UIColor.black.cgColor, shadowOpacity: 0.9)
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         return closeButton
     }()
@@ -85,6 +73,11 @@ class ProfileHeaderView: UIView {
         guard let ctx = UIGraphicsGetCurrentContext() else {
             return
         }
+        
+        setStatusButton.onTap = { [self] in
+            statusLabel.text = statusText
+        }
+        
         self.addSubview(avatarImageView)
         self.addSubview(setStatusButton)
         self.addSubview(fullNameLabel)
@@ -138,10 +131,6 @@ class ProfileHeaderView: UIView {
     @objc func statusTextChanged(_ textField: UITextField) -> String? {
         statusText = textField.text
         return statusText
-    }
-    
-    @objc func buttonPressed() {
-        statusLabel.text = statusText
     }
 }
 

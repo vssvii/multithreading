@@ -14,9 +14,13 @@ import SnapKit
 
 class PhotosViewController: UIViewController, UINavigationBarDelegate {
     
-    var imagePublisherFacade: ImagePublisherFacade?
+    var imagePublisherFacade = ImagePublisherFacade()
     
-    private var dataSource: [UIImage]?
+    private var dataSource: [UIImage]? {
+        didSet {
+            photoCollectionView.reloadData()
+        }
+    }
     
     let loginInfo = LogInViewController(inspector: factory)
     
@@ -25,11 +29,6 @@ class PhotosViewController: UIViewController, UINavigationBarDelegate {
     private enum CellReuseIdentifiers: String {
         case photos
         case collection
-    }
-    
-    private enum LayoutCostant {
-        static let spacing: CGFloat = 16.0
-        static let itemHeight: CGFloat = 300.0
     }
     
     lazy var navBar: UINavigationBar = {
@@ -50,6 +49,11 @@ class PhotosViewController: UIViewController, UINavigationBarDelegate {
         photoCollectionView.reloadData()
         return photoCollectionView
     }()
+    
+    deinit {
+        imagePublisherFacade.rechargeImageLibrary()
+        imagePublisherFacade.removeSubscription(for: self)
+    }
     
     let leftBarButtonItem = UIBarButtonItem(title: "Назад", style: UIBarButtonItem.Style.plain, target: PhotosViewController.self, action: #selector(actionCancelButton))
     
@@ -93,9 +97,9 @@ class PhotosViewController: UIViewController, UINavigationBarDelegate {
         
         navBar.setItems([navItem], animated: true)
         
-        imagePublisherFacade?.subscribe(self)
+        imagePublisherFacade.subscribe(self)
         
-        imagePublisherFacade?.addImagesWithTimer(time: 10, repeat: 11)
+        imagePublisherFacade.addImagesWithTimer(time: 0.3, repeat: 11)
         
     }
     

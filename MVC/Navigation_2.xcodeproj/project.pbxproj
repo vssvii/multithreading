@@ -91,6 +91,10 @@
 		4B97403A280F122500987C6C /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B622E5C278F1A58002139EE /* InfoViewController.swift */; };
 		4B97403B280F122600987C6C /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B622E5C278F1A58002139EE /* InfoViewController.swift */; };
 		4BAA655A27DCD8DE003AA5E2 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAA655927DCD8DE003AA5E2 /* PostTableViewCell.swift */; };
+		4BC47271287ADC9500C89D0B /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 4BC47270287ADC9500C89D0B /* iOSIntPackage */; };
+		4BC47273287AF6BC00C89D0B /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC47272287AF6BC00C89D0B /* CustomButton.swift */; };
+		4BC47274287AF6BC00C89D0B /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC47272287AF6BC00C89D0B /* CustomButton.swift */; };
+		4BC47275287AF6BC00C89D0B /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC47272287AF6BC00C89D0B /* CustomButton.swift */; };
 		91A4AF8DCA1B08B2C5C09500 /* Pods_StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18AE7F84957A51259FC3843D /* Pods_StorageService.framework */; };
 		9528C68AA3A54C93D29391E4 /* Pods_Navigation_2_release.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C5A4648448C039168E8EB6E /* Pods_Navigation_2_release.framework */; };
 		B870E7BFA0E6DB5D2E8A3537 /* Pods_Navigation_2_release.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E43DC9722784840F947357A /* Pods_Navigation_2_release.framework */; };
@@ -180,6 +184,7 @@
 		4B622E5C278F1A58002139EE /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		4B90B4C227C0189000AAB539 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		4BAA655927DCD8DE003AA5E2 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		4BC47272287AF6BC00C89D0B /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		4C5A4648448C039168E8EB6E /* Pods_Navigation_2_release.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Navigation_2_release.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F08FF723579815A8D635512 /* Pods-StorageService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorageService.release.xcconfig"; path = "Target Support Files/Pods-StorageService/Pods-StorageService.release.xcconfig"; sourceTree = "<group>"; };
 		7BB0642124E395F4284F7F28 /* Pods_Navigation_2_release.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Navigation_2_release.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +199,7 @@
 				4B8DF81F2869988C002464D3 /* iOSIntPackage in Frameworks */,
 				4B8DF81528697C07002464D3 /* Pods_Navigation_2.framework in Frameworks */,
 				4B497B7F280304D900AD19B6 /* StorageService.framework in Frameworks */,
+				4BC47271287ADC9500C89D0B /* iOSIntPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +275,7 @@
 				4B1CA6D12837EC9400FED58C /* Checker.swift */,
 				4B1CA6D62837F34400FED58C /* LoginViewControllerDelegate.swift */,
 				4B1CA6DC2839712500FED58C /* LoginFactory.swift */,
+				4BC47272287AF6BC00C89D0B /* CustomButton.swift */,
 			);
 			path = Patterns;
 			sourceTree = "<group>";
@@ -380,6 +387,7 @@
 			name = Navigation_2;
 			packageProductDependencies = (
 				4B8DF81E2869988C002464D3 /* iOSIntPackage */,
+				4BC47270287ADC9500C89D0B /* iOSIntPackage */,
 			);
 			productName = Navigation_2;
 			productReference = 4B02DA4E2778C52300023AF4 /* Navigation_2.app */;
@@ -456,8 +464,9 @@
 			);
 			mainGroup = 4B02DA452778C52300023AF4;
 			packageReferences = (
-				4B8DF81D2869988C002464D3 /* XCRemoteSwiftPackageReference "iOSIntPackage.git" */,
-				4B8DF820286999CE002464D3 /* XCRemoteSwiftPackageReference "iOSIntPackage.git" */,
+				4B8DF81D2869988C002464D3 /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
+				4B8DF820286999CE002464D3 /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
+				4BC4726F287ADC9500C89D0B /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
 			);
 			productRefGroup = 4B02DA4F2778C52300023AF4 /* Products */;
 			projectDirPath = "";
@@ -622,6 +631,7 @@
 				4B1CA6D72837F34400FED58C /* LoginViewControllerDelegate.swift in Sources */,
 				4B500F1428578109007CCD21 /* PhotosTableViewCell.swift in Sources */,
 				4B974036280F120B00987C6C /* FeedViewController.swift in Sources */,
+				4BC47273287AF6BC00C89D0B /* CustomButton.swift in Sources */,
 				4B500F1128578109007CCD21 /* PhotosViewController.swift in Sources */,
 				4B1CA6D22837EC9400FED58C /* Checker.swift in Sources */,
 				4B339CE4282ADD94005686B6 /* UserService.swift in Sources */,
@@ -655,6 +665,7 @@
 				4B500F0828578012007CCD21 /* Photo.swift in Sources */,
 				4B339CE5282ADD94005686B6 /* UserService.swift in Sources */,
 				4B500F1528578109007CCD21 /* PhotosTableViewCell.swift in Sources */,
+				4BC47274287AF6BC00C89D0B /* CustomButton.swift in Sources */,
 				4B497B9A28030A3300AD19B6 /* ProfileViewController.swift in Sources */,
 				4B1CA6D82837F34400FED58C /* LoginViewControllerDelegate.swift in Sources */,
 				4B500F0B28578012007CCD21 /* Post.swift in Sources */,
@@ -678,6 +689,7 @@
 				4B1CA6D92837F34400FED58C /* LoginViewControllerDelegate.swift in Sources */,
 				4B500F1628578109007CCD21 /* PhotosTableViewCell.swift in Sources */,
 				4B974037280F120C00987C6C /* FeedViewController.swift in Sources */,
+				4BC47275287AF6BC00C89D0B /* CustomButton.swift in Sources */,
 				4B500F1328578109007CCD21 /* PhotosViewController.swift in Sources */,
 				4B1CA6D42837EC9400FED58C /* Checker.swift in Sources */,
 				4B339CE6282ADD94005686B6 /* UserService.swift in Sources */,
@@ -1099,7 +1111,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4B8DF81D2869988C002464D3 /* XCRemoteSwiftPackageReference "iOSIntPackage.git" */ = {
+		4B8DF81D2869988C002464D3 /* XCRemoteSwiftPackageReference "iOSIntPackage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TrueMax/iOSIntPackage.git";
 			requirement = {
@@ -1107,7 +1119,15 @@
 				kind = branch;
 			};
 		};
-		4B8DF820286999CE002464D3 /* XCRemoteSwiftPackageReference "iOSIntPackage.git" */ = {
+		4B8DF820286999CE002464D3 /* XCRemoteSwiftPackageReference "iOSIntPackage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TrueMax/iOSIntPackage.git";
+			requirement = {
+				branch = imagepublisher;
+				kind = branch;
+			};
+		};
+		4BC4726F287ADC9500C89D0B /* XCRemoteSwiftPackageReference "iOSIntPackage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TrueMax/iOSIntPackage.git";
 			requirement = {
@@ -1120,12 +1140,17 @@
 /* Begin XCSwiftPackageProductDependency section */
 		4B8DF81E2869988C002464D3 /* iOSIntPackage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4B8DF81D2869988C002464D3 /* XCRemoteSwiftPackageReference "iOSIntPackage.git" */;
+			package = 4B8DF81D2869988C002464D3 /* XCRemoteSwiftPackageReference "iOSIntPackage" */;
 			productName = iOSIntPackage;
 		};
 		4B8DF821286999CE002464D3 /* iOSIntPackage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4B8DF81D2869988C002464D3 /* XCRemoteSwiftPackageReference "iOSIntPackage.git" */;
+			package = 4B8DF81D2869988C002464D3 /* XCRemoteSwiftPackageReference "iOSIntPackage" */;
+			productName = iOSIntPackage;
+		};
+		4BC47270287ADC9500C89D0B /* iOSIntPackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B8DF81D2869988C002464D3 /* XCRemoteSwiftPackageReference "iOSIntPackage" */;
 			productName = iOSIntPackage;
 		};
 /* End XCSwiftPackageProductDependency section */
