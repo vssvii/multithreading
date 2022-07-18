@@ -34,11 +34,14 @@ class ProfileHeaderView: UIView {
     }()
     
     
-    private var setStatusButton: CustomButton = {
-        let setStatusButton = CustomButton(backgroundColor: .blue, title: "Показать статус", shadowHeight: 4, shadowWidth: 4, shadowRadius: 4, shadowColor: UIColor.black.cgColor, shadowOpacity: 0.7)
-        setStatusButton.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var setStatusButton: CustomButton = {
+        let setStatusButton = CustomButton(title: "Показать статус", action: showStatus)
         return setStatusButton
     }()
+    
+    @objc func showStatus() {
+        statusLabel.text = statusText
+    }
     
     private var fullNameLabel: UILabel = {
         let fullNameLabel = UILabel()
@@ -63,19 +66,23 @@ class ProfileHeaderView: UIView {
         return statusTextField
     }()
     
-    private var closeButton: CustomButton = {
-        let closeButton = CustomButton(backgroundColor: .systemRed, title: "Закрыть", shadowHeight: 5, shadowWidth: 5, shadowRadius: 3, shadowColor: UIColor.black.cgColor, shadowOpacity: 0.9)
-        closeButton.translatesAutoresizingMaskIntoConstraints = false
+    @objc func statusTextChanged(_ textField: UITextField) -> String? {
+        statusText = textField.text
+        return statusText
+    }
+    
+    private lazy var closeButton: CustomButton = {
+        let closeButton = CustomButton(title: "Закрыть", action: closeAction)
         return closeButton
     }()
+    
+    @objc func closeAction() {
+        
+    }
     
     override func draw(_ rect: CGRect) {
         guard let ctx = UIGraphicsGetCurrentContext() else {
             return
-        }
-        
-        setStatusButton.onTap = { [self] in
-            statusLabel.text = statusText
         }
         
         self.addSubview(avatarImageView)
@@ -126,11 +133,6 @@ class ProfileHeaderView: UIView {
             make.height.equalTo(50)
             make.bottom.equalToSuperview()
         }
-    }
-    
-    @objc func statusTextChanged(_ textField: UITextField) -> String? {
-        statusText = textField.text
-        return statusText
     }
 }
 

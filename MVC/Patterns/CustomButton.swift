@@ -8,44 +8,28 @@
 import Foundation
 import UIKit
 
-class CustomButton: UIView {
+final class CustomButton: UIButton {
+    typealias Action = () -> Void
     
-    var onTap: (() -> Void)?
+    var buttonAction: Action
     
-    lazy var customButton: UIButton = {
-        let customButton = UIButton()
-        customButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        return customButton
-    }()
-    
-    required init(backgroundColor: UIColor, title: String, shadowHeight: CGFloat, shadowWidth: CGFloat, shadowRadius: CGFloat, shadowColor: CGColor, shadowOpacity: Float) {
+    init(title: String, titleColor: UIColor = .white, bgColor: UIColor = UIColor(named: "colorHex")!, action: @escaping Action) {
+        buttonAction = action
         super.init(frame: .zero)
-        self.customButton.backgroundColor = backgroundColor
-        self.customButton.setTitle(title, for: .normal)
-        self.customButton.layer.shadowOffset = CGSize(width: shadowWidth, height: shadowHeight)
-        self.customButton.layer.shadowRadius = shadowRadius
-        self.customButton.layer.shadowColor = shadowColor
-        self.customButton.layer.shadowOpacity = shadowOpacity
-        setup()
+        layer.cornerRadius = 12
+        clipsToBounds = true
+        backgroundColor = bgColor
+        setTitleColor(titleColor, for: .normal)
+        translatesAutoresizingMaskIntoConstraints = false
+        setTitle(title, for: .normal)
+        addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("Error!")
     }
     
-    private func setup() {
-        addSubview(customButton)
-        customButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            customButton.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            customButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            customButton.topAnchor.constraint(equalTo: self.topAnchor),
-            customButton.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-        ])
-    }
-    
-    @objc func buttonPressed() {
-        onTap?()
+    @objc private func buttonTapped(_ sender: UIButton) {
+        buttonAction()
     }
 }

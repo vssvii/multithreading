@@ -8,13 +8,14 @@
 import UIKit
 import Foundation
 
-struct WordModel {
-    let wordPassword: String = "пароль"
+class WordModel: NSObject {
+    
+        let wordPassword: String = "пароль"
 }
 
+let wordModel = WordModel()
+
 class FeedViewController: UIViewController {
-    
-    let wordModel = WordModel()
     
     private var feedImageView: UIImageView = {
         let feedImageView = UIImageView()
@@ -26,10 +27,15 @@ class FeedViewController: UIViewController {
     }()
     
     private lazy var feedButton: CustomButton = {
-        let feedButton = CustomButton(backgroundColor: UIColor(named: "colorHex")!, title: "Посмотреть пост", shadowHeight: 4, shadowWidth: 4, shadowRadius: 4, shadowColor: UIColor.black.cgColor, shadowOpacity: 0.4)
-        feedButton.translatesAutoresizingMaskIntoConstraints = false
+        let feedButton = CustomButton(title: "Посмотреть пост", action: goToPostController)
         return feedButton
     }()
+    
+    @objc func goToPostController() {
+        let postViewController = PostViewController()
+        postViewController.modalPresentationStyle = .overCurrentContext
+        self.navigationController?.pushViewController(postViewController, animated: true)
+    }
     
     private lazy var feedTextField: UITextField = {
         let feedTextField = UITextField()
@@ -49,31 +55,18 @@ class FeedViewController: UIViewController {
         return feedTextField
     }()
     
-//    private lazy var checkButton: CustomButton = {
-//        let checkButton = CustomButton(backgroundColor: UIColor(named: "colorHex")!, title: "Проверить слово", shadowHeight: 4, shadowWidth: 4, shadowRadius: 4, shadowColor: UIColor.black.cgColor, shadowOpacity: 0.4)
-//        checkButton.translatesAutoresizingMaskIntoConstraints = false
-//        return checkButton
-//    }()
-    
-    private lazy var checkButton: UIButton = {
-        let checkButton = UIButton()
-        checkButton.backgroundColor = UIColor(named: "colorHex")
-        checkButton.setTitle("Проверить слово", for: .normal)
-        checkButton.layer.shadowOffset = CGSize(width: 4, height: 4)
-        checkButton.layer.shadowRadius = 4
-        checkButton.layer.shadowColor = UIColor.black.cgColor
-        checkButton.layer.shadowOpacity = 0.4
-        checkButton.translatesAutoresizingMaskIntoConstraints = false
-        checkButton.addTarget(self, action: #selector(check), for: .touchUpInside)
+    private lazy var checkButton: CustomButton = {
+        let checkButton = CustomButton(title: "Проверить слово", action: check)
         return checkButton
     }()
     
-    @objc func check() {
-        if wordModel.wordPassword == feedTextField.text {
-            feedTextField.textColor = .green
-        } else {
-            feedTextField.textColor = .red
-        }
+    func check() {
+        let word = feedTextField.text
+        if wordModel.wordPassword == word {
+                    feedTextField.textColor = .green
+                } else {
+                    feedTextField.textColor = .red
+                }
     }
     
     override func viewDidLoad() {
@@ -82,12 +75,6 @@ class FeedViewController: UIViewController {
         view.backgroundColor = .white
         
         setupLayout()
-        
-        feedButton.onTap = {
-            let postViewController = PostViewController()
-            postViewController.modalPresentationStyle = .overCurrentContext
-            self.navigationController?.pushViewController(postViewController, animated: true)
-        }
     }
     
     func setupLayout() {

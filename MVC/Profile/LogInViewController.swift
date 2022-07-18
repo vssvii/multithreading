@@ -65,9 +65,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }()
     
     private lazy var logInButton: CustomButton = {
-        let logInButton = CustomButton(backgroundColor: UIColor(named: "colorHex")!, title: "Log In", shadowHeight: 4, shadowWidth: 4, shadowRadius: 4, shadowColor: UIColor.black.cgColor, shadowOpacity: 0.4)
-        logInButton.translatesAutoresizingMaskIntoConstraints = false
-        logInButton.onTap = { [self] in
+        let logInButton = CustomButton(title: "Log In", action: logInAction)
+        return logInButton
+    }()
+    
+    @objc func logInAction() {
                     #if DEBUG
                     let logInProfile = ProfileViewController(userService: CurrentUserService(name: login.text!, avatar: "", status: "") as UserService, userName: login.text!)
                     navigationController?.pushViewController(logInProfile, animated: true)
@@ -75,9 +77,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                     let logInProfile = ProfileViewController(userService: TestUserService(name: login.text!, avatar: "", status: "") as UserService, userName: login.text!)
                     navigationController?.pushViewController(logInProfile, animated: true)
                     #endif
-        }
-        return logInButton
-    }()
+    }
     
     private let inspector: LoginViewControllerDelegate
     
