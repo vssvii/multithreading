@@ -12,13 +12,3 @@ protocol LoginFactory {
     
     func getLoginInspector () -> LoginInspector
 }
-
-extension LoginFactory {
-    
-    func getLoginInspector () -> LoginInspector {
-        return LoginInspector()
-    }
-}
-
-class MyLoginFactory: LoginFactory {
-}

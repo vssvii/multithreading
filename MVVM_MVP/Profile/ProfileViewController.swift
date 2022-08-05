@@ -15,14 +15,24 @@ var factory = MyLoginFactory().getLoginInspector()
 
 class ProfileViewController: UIViewController {
     
-    let userService: UserService?
+    var userName: String?
+    
+    var backgroundColor: UIColor = .clear
+    
+    var coordinator: ProfileCoordinator?
+    
+    var profileModel: ProfileModel?
+    
+    var userService: UserService?
     
     var userLogIn = LogInViewController(inspector: factory).login.text
     
-    init(userService: UserService, userName: String) {
-        self.userService = userService
-        self.userLogIn = userName
+    init(viewModel: ProfileModel) {
         super.init(nibName: nil, bundle: nil)
+        backgroundColor = viewModel.color
+        self.title = viewModel.title
+        self.userService = viewModel.userService
+        self.userName = viewModel.userName
     }
     
     required init?(coder: NSCoder) {

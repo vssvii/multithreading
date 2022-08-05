@@ -8,13 +8,28 @@
 import UIKit
 
 class PostViewController: UIViewController {
+    
+//    private let viewModel: FeedModel
+    
+    weak var coordinator: PostViewController?
+    
+    var backgroundColor: UIColor = .clear
+    
+    init(_ color: UIColor, title: String = "Post") {
+        super.init(nibName: nil, bundle: nil)
+        backgroundColor = color
+        self.title = title
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .systemMint
-        let feedView = FeedViewController()
-        self.title = feedView.post.title
+//        let feedView = FeedViewController(viewModel: viewModel)
+//        self.title = feedView.post.title
         
         configureItems()
     }

@@ -11,11 +11,25 @@ import Foundation
 class WordModel: NSObject {
     
         let wordPassword: String = "пароль"
+    
 }
 
 let wordModel = WordModel()
 
 class FeedViewController: UIViewController {
+    
+    private let viewModel: FeedModel
+    
+    var coordinator: FeedCoordinator?
+    
+    init(viewModel: FeedModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private var feedImageView: UIImageView = {
         let feedImageView = UIImageView()
@@ -27,14 +41,14 @@ class FeedViewController: UIViewController {
     }()
     
     private lazy var feedButton: CustomButton = {
-        let feedButton = CustomButton(title: "Посмотреть пост", action: goToPostController)
+        let feedButton = CustomButton(title: "Посмотреть пост", action: onButtonTap)
         return feedButton
     }()
     
-    @objc func goToPostController() {
-        let postViewController = PostViewController()
-        postViewController.modalPresentationStyle = .overCurrentContext
-        self.navigationController?.pushViewController(postViewController, animated: true)
+    @objc func onButtonTap() {
+        print("onButtonTap tapped")
+        self.coordinator = FeedCoordinator(navigation: self.navigationController ?? UINavigationController())
+        self.coordinator?.postSubscription()
     }
     
     private lazy var feedTextField: UITextField = {
@@ -56,17 +70,19 @@ class FeedViewController: UIViewController {
     }()
     
     private lazy var checkButton: CustomButton = {
-        let checkButton = CustomButton(title: "Проверить слово", action: check)
+        let checkButton = CustomButton(title: "Проверить слово") { [unowned self] in
+            guard let word = feedTextField.text else { return }
+            check(word: word)
+        }
         return checkButton
     }()
     
-    func check() {
-        let word = feedTextField.text
+    func check(word: String) {
         if wordModel.wordPassword == word {
-                    feedTextField.textColor = .green
-                } else {
-                    feedTextField.textColor = .red
-                }
+            feedTextField.textColor = .green
+        } else {
+            feedTextField.textColor = .red
+        }
     }
     
     override func viewDidLoad() {
@@ -111,4 +127,3 @@ class FeedViewController: UIViewController {
     
     var post = Post(title: "Пост")
 }
-
