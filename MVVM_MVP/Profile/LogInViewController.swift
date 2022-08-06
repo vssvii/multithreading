@@ -9,6 +9,10 @@ import UIKit
 
 class LogInViewController: UIViewController, UITextFieldDelegate {
     
+    private let logInInspector: LoginViewControllerDelegate
+    
+    var coordinator: LoginCoordinator?
+    
     var delegate: LoginViewControllerDelegate?
     
     public lazy var scrollView: UIScrollView = {
@@ -70,19 +74,34 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }()
     
     @objc func logInAction() {
-                    #if DEBUG
-                    let logInProfile = ProfileViewController(userService: CurrentUserService(name: login.text!, avatar: "", status: "") as UserService, userName: login.text!)
-                    navigationController?.pushViewController(logInProfile, animated: true)
-                    #else
-                    let logInProfile = ProfileViewController(userService: TestUserService(name: login.text!, avatar: "", status: "") as UserService, userName: login.text!)
-                    navigationController?.pushViewController(logInProfile, animated: true)
-                    #endif
+        
+        
+        guard let userName = login.text else {return}
+        guard let userPassword = pass.text else {return}
+        
+        #if DEBUG
+        let userService = TestUserService()
+        #else
+        let user = User(name: userName)
+        let userService = CurrentUserService(user: user)
+        #endif
+        
+        if logInInspector.logInPasswordChecker(login: userName, password: userPassword) == true {
+            self.coordinator = LoginCoordinator(navigation: self.navigationController ?? UINavigationController())
+            self.coordinator?.profileSubscription(userName: userName, userService: userService)
+            self.navigationController?.tabBarItem.title = TabBarModel().profileTitle
+        } else {
+            
+            let alert = UIAlertController(title: "Не верный логин или пароль", message: "Пожалуйста, проверьте данные и повторите попытку", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
-    private let inspector: LoginViewControllerDelegate
-    
     init(inspector: LoginViewControllerDelegate) {
-        self.inspector = inspector
+        self.logInInspector = inspector
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -186,12 +205,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
 }
 
-extension LogInViewController: LoginViewControllerDelegate {
-    func logInChecker(userName: String, password: String) -> Bool {
-        if userName == Checker.shared.login && password == Checker.shared.pswd {
-            return true
-        } else {
-            return false
-        }
-    }
-}
+//extension LogInViewController: LoginViewControllerDelegate {
+//    func logInChecker(userName: String, password: String) -> Bool {
+//        if userName == Checker.shared.login && password == Checker.shared. {
+//            return true
+//        } else {
+//            return false
+//        }
+//    }
+//}

@@ -9,9 +9,13 @@ import UIKit
 
 class User {
         
-        var name: String
-        var avatar: String
-        var status: String
+        var name: String?
+        var avatar: String?
+        var status: String?
+    
+    init(name: String) {
+        self.name = name
+    }
     
     init(name: String, avatar: String, status: String) {
         self.name = name
