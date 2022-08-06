@@ -7,19 +7,85 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4B02DA522778C52300023AF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B02DA512778C52300023AF4 /* AppDelegate.swift */; };
-		4B02DA562778C52300023AF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B02DA552778C52300023AF4 /* ViewController.swift */; };
 		4B02DA592778C52300023AF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B02DA572778C52300023AF4 /* Main.storyboard */; };
 		4B02DA5B2778C52500023AF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B02DA5A2778C52500023AF4 /* Assets.xcassets */; };
 		4B02DA5E2778C52500023AF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B02DA5C2778C52500023AF4 /* LaunchScreen.storyboard */; };
-		4B02DA662778C5DA00023AF4 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B02DA652778C5DA00023AF4 /* FeedViewController.swift */; };
-		4B02DA682778C5FF00023AF4 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B02DA672778C5FF00023AF4 /* PostViewController.swift */; };
 		4B02DA6A2778CB7900023AF4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B02DA692778CB7900023AF4 /* ProfileViewController.swift */; };
 		4B2F12762797329A004AE7CE /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2F12752797329A004AE7CE /* ProfileHeaderView.swift */; };
-		4B622E5D278F1A58002139EE /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B622E5C278F1A58002139EE /* InfoViewController.swift */; };
+		4B497B7C280304D900AD19B6 /* StorageService.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B497B7B280304D900AD19B6 /* StorageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4B497B7F280304D900AD19B6 /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B497B79280304D900AD19B6 /* StorageService.framework */; };
+		4B497B80280304D900AD19B6 /* StorageService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B497B79280304D900AD19B6 /* StorageService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B497B852803050000AD19B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B02DA572778C52300023AF4 /* Main.storyboard */; };
+		4B497B862803050400AD19B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B02DA5A2778C52500023AF4 /* Assets.xcassets */; };
+		4B497B872803050800AD19B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B02DA5C2778C52500023AF4 /* LaunchScreen.storyboard */; };
+		4B497B882803050D00AD19B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B02DA512778C52300023AF4 /* AppDelegate.swift */; };
+		4B497B892803051100AD19B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B02DA552778C52300023AF4 /* ViewController.swift */; };
+		4B497B8A2803051400AD19B6 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B02DA652778C5DA00023AF4 /* FeedViewController.swift */; };
+		4B497B8B2803051800AD19B6 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B02DA672778C5FF00023AF4 /* PostViewController.swift */; };
+		4B497B962803097A00AD19B6 /* StorageService.h in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B497B7B280304D900AD19B6 /* StorageService.h */; };
+		4B497B97280309A700AD19B6 /* StorageService.h in Sources */ = {isa = PBXBuildFile; fileRef = 4B497B7B280304D900AD19B6 /* StorageService.h */; };
+		4B497B98280309E200AD19B6 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B622E5C278F1A58002139EE /* InfoViewController.swift */; };
+		4B497B9928030A2100AD19B6 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B90B4C227C0189000AAB539 /* LogInViewController.swift */; };
+		4B497B9A28030A3300AD19B6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B02DA692778CB7900023AF4 /* ProfileViewController.swift */; };
+		4B497B9B28030A3900AD19B6 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2F12752797329A004AE7CE /* ProfileHeaderView.swift */; };
+		4B497B9C28030A4800AD19B6 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAA655927DCD8DE003AA5E2 /* PostTableViewCell.swift */; };
+		4B5CD5BB280DD3C700E105B2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B02DA692778CB7900023AF4 /* ProfileViewController.swift */; };
+		4B5CD5BC280DD3C700E105B2 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B90B4C227C0189000AAB539 /* LogInViewController.swift */; };
+		4B5CD5BD280DD3C700E105B2 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2F12752797329A004AE7CE /* ProfileHeaderView.swift */; };
+		4B5CD5BE280DD3C700E105B2 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAA655927DCD8DE003AA5E2 /* PostTableViewCell.swift */; };
+		4B5CD5C0280DD3C700E105B2 /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B497B79280304D900AD19B6 /* StorageService.framework */; };
+		4B5CD5C2280DD3C700E105B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B02DA5C2778C52500023AF4 /* LaunchScreen.storyboard */; };
+		4B5CD5C3280DD3C700E105B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B02DA5A2778C52500023AF4 /* Assets.xcassets */; };
+		4B5CD5C4280DD3C700E105B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B02DA572778C52300023AF4 /* Main.storyboard */; };
+		4B5CD5C6280DD3C700E105B2 /* StorageService.h in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B497B7B280304D900AD19B6 /* StorageService.h */; };
+		4B5CD5C7280DD3C700E105B2 /* StorageService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B497B79280304D900AD19B6 /* StorageService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B90B4C327C0189000AAB539 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B90B4C227C0189000AAB539 /* LogInViewController.swift */; };
 		4BAA655A27DCD8DE003AA5E2 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAA655927DCD8DE003AA5E2 /* PostTableViewCell.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4B497B7D280304D900AD19B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B02DA462778C52300023AF4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B497B78280304D900AD19B6;
+			remoteInfo = StorageService;
+		};
+		4B5CD5B9280DD3C700E105B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B02DA462778C52300023AF4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B497B78280304D900AD19B6;
+			remoteInfo = StorageService;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4B497B84280304D900AD19B6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4B497B962803097A00AD19B6 /* StorageService.h in Embed Frameworks */,
+				4B497B80280304D900AD19B6 /* StorageService.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B5CD5C5280DD3C700E105B2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4B5CD5C6280DD3C700E105B2 /* StorageService.h in Embed Frameworks */,
+				4B5CD5C7280DD3C700E105B2 /* StorageService.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4B02DA4E2778C52300023AF4 /* Navigation_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,6 +99,10 @@
 		4B02DA672778C5FF00023AF4 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		4B02DA692778CB7900023AF4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4B2F12752797329A004AE7CE /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		4B497B79280304D900AD19B6 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B497B7B280304D900AD19B6 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
+		4B5CD5CB280DD3C700E105B2 /* Navigation_2_release.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation_2_release.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B5CD5CC280DD3C700E105B2 /* Navigation_2 copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Navigation_2 copy-Info.plist"; path = "/Users/ibragimassai/Documents/code/IOS16/Homeworks/ios_prod/structure_of_project/Navigation_2 copy-Info.plist"; sourceTree = "<absolute>"; };
 		4B622E5C278F1A58002139EE /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		4B90B4C227C0189000AAB539 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		4BAA655927DCD8DE003AA5E2 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -43,6 +113,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B497B7F280304D900AD19B6 /* StorageService.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B497B76280304D900AD19B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B5CD5BF280DD3C700E105B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B5CD5C0280DD3C700E105B2 /* StorageService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,7 +140,9 @@
 			children = (
 				4B2F12742797321B004AE7CE /* Profile */,
 				4B02DA502778C52300023AF4 /* Navigation_2 */,
+				4B497B7A280304D900AD19B6 /* StorageService */,
 				4B02DA4F2778C52300023AF4 /* Products */,
+				4B5CD5CC280DD3C700E105B2 /* Navigation_2 copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				4B02DA4E2778C52300023AF4 /* Navigation_2.app */,
+				4B497B79280304D900AD19B6 /* StorageService.framework */,
+				4B5CD5CB280DD3C700E105B2 /* Navigation_2_release.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,7 +183,26 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		4B497B7A280304D900AD19B6 /* StorageService */ = {
+			isa = PBXGroup;
+			children = (
+				4B497B7B280304D900AD19B6 /* StorageService.h */,
+			);
+			path = StorageService;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4B497B74280304D900AD19B6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B497B7C280304D900AD19B6 /* StorageService.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		4B02DA4D2778C52300023AF4 /* Navigation_2 */ = {
@@ -103,14 +212,53 @@
 				4B02DA4A2778C52300023AF4 /* Sources */,
 				4B02DA4B2778C52300023AF4 /* Frameworks */,
 				4B02DA4C2778C52300023AF4 /* Resources */,
+				4B497B84280304D900AD19B6 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4B497B7E280304D900AD19B6 /* PBXTargetDependency */,
+			);
+			name = Navigation_2;
+			productName = Navigation_2;
+			productReference = 4B02DA4E2778C52300023AF4 /* Navigation_2.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4B497B78280304D900AD19B6 /* StorageService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B497B81280304D900AD19B6 /* Build configuration list for PBXNativeTarget "StorageService" */;
+			buildPhases = (
+				4B497B74280304D900AD19B6 /* Headers */,
+				4B497B75280304D900AD19B6 /* Sources */,
+				4B497B76280304D900AD19B6 /* Frameworks */,
+				4B497B77280304D900AD19B6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Navigation_2;
+			name = StorageService;
+			productName = StorageService;
+			productReference = 4B497B79280304D900AD19B6 /* StorageService.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4B5CD5B7280DD3C700E105B2 /* Navigation_2_release */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B5CD5C8280DD3C700E105B2 /* Build configuration list for PBXNativeTarget "Navigation_2_release" */;
+			buildPhases = (
+				4B5CD5BA280DD3C700E105B2 /* Sources */,
+				4B5CD5BF280DD3C700E105B2 /* Frameworks */,
+				4B5CD5C1280DD3C700E105B2 /* Resources */,
+				4B5CD5C5280DD3C700E105B2 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4B5CD5B8280DD3C700E105B2 /* PBXTargetDependency */,
+			);
+			name = Navigation_2_release;
 			productName = Navigation_2;
-			productReference = 4B02DA4E2778C52300023AF4 /* Navigation_2.app */;
+			productReference = 4B5CD5CB280DD3C700E105B2 /* Navigation_2_release.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -119,12 +267,15 @@
 		4B02DA462778C52300023AF4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
 					4B02DA4D2778C52300023AF4 = {
 						CreatedOnToolsVersion = 13.1;
+					};
+					4B497B78280304D900AD19B6 = {
+						CreatedOnToolsVersion = 13.2.1;
 					};
 				};
 			};
@@ -142,6 +293,8 @@
 			projectRoot = "";
 			targets = (
 				4B02DA4D2778C52300023AF4 /* Navigation_2 */,
+				4B497B78280304D900AD19B6 /* StorageService */,
+				4B5CD5B7280DD3C700E105B2 /* Navigation_2_release */,
 			);
 		};
 /* End PBXProject section */
@@ -157,6 +310,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4B497B77280304D900AD19B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B497B872803050800AD19B6 /* LaunchScreen.storyboard in Resources */,
+				4B497B862803050400AD19B6 /* Assets.xcassets in Resources */,
+				4B497B852803050000AD19B6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B5CD5C1280DD3C700E105B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B5CD5C2280DD3C700E105B2 /* LaunchScreen.storyboard in Resources */,
+				4B5CD5C3280DD3C700E105B2 /* Assets.xcassets in Resources */,
+				4B5CD5C4280DD3C700E105B2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -164,19 +337,55 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B02DA682778C5FF00023AF4 /* PostViewController.swift in Sources */,
-				4B02DA562778C52300023AF4 /* ViewController.swift in Sources */,
 				4B02DA6A2778CB7900023AF4 /* ProfileViewController.swift in Sources */,
-				4B02DA662778C5DA00023AF4 /* FeedViewController.swift in Sources */,
 				4B90B4C327C0189000AAB539 /* LogInViewController.swift in Sources */,
 				4B2F12762797329A004AE7CE /* ProfileHeaderView.swift in Sources */,
-				4B622E5D278F1A58002139EE /* InfoViewController.swift in Sources */,
-				4B02DA522778C52300023AF4 /* AppDelegate.swift in Sources */,
 				4BAA655A27DCD8DE003AA5E2 /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4B497B75280304D900AD19B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B497B98280309E200AD19B6 /* InfoViewController.swift in Sources */,
+				4B497B97280309A700AD19B6 /* StorageService.h in Sources */,
+				4B497B8B2803051800AD19B6 /* PostViewController.swift in Sources */,
+				4B497B9928030A2100AD19B6 /* LogInViewController.swift in Sources */,
+				4B497B9B28030A3900AD19B6 /* ProfileHeaderView.swift in Sources */,
+				4B497B8A2803051400AD19B6 /* FeedViewController.swift in Sources */,
+				4B497B892803051100AD19B6 /* ViewController.swift in Sources */,
+				4B497B9C28030A4800AD19B6 /* PostTableViewCell.swift in Sources */,
+				4B497B9A28030A3300AD19B6 /* ProfileViewController.swift in Sources */,
+				4B497B882803050D00AD19B6 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B5CD5BA280DD3C700E105B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B5CD5BB280DD3C700E105B2 /* ProfileViewController.swift in Sources */,
+				4B5CD5BC280DD3C700E105B2 /* LogInViewController.swift in Sources */,
+				4B5CD5BD280DD3C700E105B2 /* ProfileHeaderView.swift in Sources */,
+				4B5CD5BE280DD3C700E105B2 /* PostTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4B497B7E280304D900AD19B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B497B78280304D900AD19B6 /* StorageService */;
+			targetProxy = 4B497B7D280304D900AD19B6 /* PBXContainerItemProxy */;
+		};
+		4B5CD5B8280DD3C700E105B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B497B78280304D900AD19B6 /* StorageService */;
+			targetProxy = 4B5CD5B9280DD3C700E105B2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4B02DA572778C52300023AF4 /* Main.storyboard */ = {
@@ -249,7 +458,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -304,7 +513,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -317,6 +526,7 @@
 		4B02DA632778C52500023AF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -336,6 +546,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "netology.Navigation-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -345,6 +556,7 @@
 		4B02DA642778C52500023AF4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -362,6 +574,132 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "netology.Navigation-2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		4B497B82280304D900AD19B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = W3VF76BU83;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = netology.StorageService;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4B497B83280304D900AD19B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = W3VF76BU83;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = netology.StorageService;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4B5CD5C9280DD3C700E105B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W3VF76BU83;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Navigation_2 copy-Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "netology.Navigation-2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		4B5CD5CA280DD3C700E105B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W3VF76BU83;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Navigation_2 copy-Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "netology.Navigation-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -387,6 +725,24 @@
 			buildConfigurations = (
 				4B02DA632778C52500023AF4 /* Debug */,
 				4B02DA642778C52500023AF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B497B81280304D900AD19B6 /* Build configuration list for PBXNativeTarget "StorageService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B497B82280304D900AD19B6 /* Debug */,
+				4B497B83280304D900AD19B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B5CD5C8280DD3C700E105B2 /* Build configuration list for PBXNativeTarget "Navigation_2_release" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B5CD5C9280DD3C700E105B2 /* Debug */,
+				4B5CD5CA280DD3C700E105B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
