@@ -15,12 +15,10 @@ public class PhotosTableViewCell: UITableViewCell  {
         case collection
     }
     
-    let photos = [
-        Photo(image: UIImage(named: "1")),
-        Photo(image: UIImage(named: "2")),
-        Photo(image: UIImage(named: "3")),
-        Photo(image: UIImage(named: "4"))
-    ]
+//    let photos: [UIImage?] = [UIImage(named: "1"),
+//                             UIImage(named: "2"),
+//                             UIImage(named: "3"),
+//                             UIImage(named: "4")]
     
     lazy var photosLabel: UILabel = {
         let authorLabel = UILabel()
@@ -78,18 +76,19 @@ public class PhotosTableViewCell: UITableViewCell  {
                 photosCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
                 photosCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
             ])
+        checkOptional(images: dataPhotos)
     }
 }
 
 extension PhotosTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photos.count
+        return dataPhotosSafely.count
         }
         
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellReuseIdentifiers.photos.rawValue, for: indexPath) as! PhotosCollectionViewCell
                         cell.backgroundColor = .clear
-        cell.photoImageView.image = photos[indexPath.item].image
+        cell.photoImageView.image = dataPhotosSafely[indexPath.row]
         return cell
 }
         

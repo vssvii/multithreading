@@ -49,7 +49,7 @@ class ProfileViewController: UIViewController {
     
     var posts: [Post] = []
     
-    var photos: [Photo] = []
+//    var photos: [Photo] = []
     
     
     private lazy var postTableView: UITableView = {
@@ -78,12 +78,12 @@ class ProfileViewController: UIViewController {
         Post(author: "Мотивация. Спорт", description: "Программа по отжиманиям", image: UIImage(named: "pushups"), likes: 150, views: 180)
         ]
         
-        photos = [
-            Photo(image: UIImage(named: "1")),
-            Photo(image: UIImage(named: "2")),
-            Photo(image: UIImage(named: "3")),
-            Photo(image: UIImage(named: "4"))
-        ]
+//        photos = [
+//            Photo(image: UIImage(named: "1")),
+//            Photo(image: UIImage(named: "2")),
+//            Photo(image: UIImage(named: "3")),
+//            Photo(image: UIImage(named: "4"))
+//        ]
 
 
             #if DEBUG
