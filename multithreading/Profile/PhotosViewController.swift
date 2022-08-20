@@ -16,27 +16,21 @@ class PhotosViewController: UIViewController, UINavigationBarDelegate {
     
     var imagePublisherFacade = ImagePublisherFacade()
     
-    private var dataSource: [UIImage]? {
-        didSet {
-            photoCollectionView.reloadData()
-        }
+    let imageProcessor = ImageProcessor()
+    
+    private var publisherImages: [UIImage] = []
+    
+    deinit {
+        imagePublisherFacade.rechargeImageLibrary()
+        imagePublisherFacade.removeSubscription(for: self)
     }
     
     let loginInfo = LogInViewController(inspector: factory)
-    
-    var photos: [Photo] = []
     
     private enum CellReuseIdentifiers: String {
         case photos
         case collection
     }
-    
-    lazy var navBar: UINavigationBar = {
-        let navBar = UINavigationBar()
-        navBar.backgroundColor = .white
-        navBar.translatesAutoresizingMaskIntoConstraints = false
-        return navBar
-    }()
     
     lazy var photoCollectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
@@ -49,84 +43,42 @@ class PhotosViewController: UIViewController, UINavigationBarDelegate {
         photoCollectionView.reloadData()
         return photoCollectionView
     }()
-    
-    deinit {
-        imagePublisherFacade.rechargeImageLibrary()
-        imagePublisherFacade.removeSubscription(for: self)
-    }
-    
-    let leftBarButtonItem = UIBarButtonItem(title: "Назад", style: UIBarButtonItem.Style.plain, target: PhotosViewController.self, action: #selector(actionCancelButton))
-    
-    let navItem = UINavigationItem()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
         
-        photos = [
-            Photo(image: UIImage(named: "1")),
-            Photo(image: UIImage(named: "2")),
-            Photo(image: UIImage(named: "3")),
-            Photo(image: UIImage(named: "4")),
-            Photo(image: UIImage(named: "5")),
-            Photo(image: UIImage(named: "6")),
-            Photo(image: UIImage(named: "7")),
-            Photo(image: UIImage(named: "8")),
-            Photo(image: UIImage(named: "9")),
-            Photo(image: UIImage(named: "10")),
-            Photo(image: UIImage(named: "11")),
-            Photo(image: UIImage(named: "12")),
-            Photo(image: UIImage(named: "13")),
-            Photo(image: UIImage(named: "14")),
-            Photo(image: UIImage(named: "15")),
-            Photo(image: UIImage(named: "16")),
-            Photo(image: UIImage(named: "17")),
-            Photo(image: UIImage(named: "18")),
-            Photo(image: UIImage(named: "19")),
-            Photo(image: UIImage(named: "20"))
-        ]
+        self.title = "Галерея"
         
         setupViews()
         setupLayouts()
         
-        let navItem = UINavigationItem()
-        navItem.title = "Галерея"
-        
-        navItem.leftBarButtonItem = leftBarButtonItem
-        
-        navBar.setItems([navItem], animated: true)
-        
+        self.navigationController?.navigationBar.isHidden = false
+
         imagePublisherFacade.subscribe(self)
         
-        imagePublisherFacade.addImagesWithTimer(time: 0.3, repeat: 11)
+        imagePublisherFacade.addImagesWithTimer(time: 0.1, repeat: 10)
+        
+        receive(images: dataPhotosSafely)
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     private func setupViews() {
         
-        view.addSubview(navBar)
         view.addSubview(photoCollectionView)
-    }
-    
-    
-    @objc func actionCancelButton() {
-        self.navigationController?.popViewController(animated: true)
     }
     
     private func setupLayouts() {
         
         NSLayoutConstraint.activate([
             
-            navBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            navBar.heightAnchor.constraint(equalToConstant: 44),
-            navBar.widthAnchor.constraint(equalTo: view.widthAnchor),
-            
-            photoCollectionView.topAnchor.constraint(equalTo: navBar.safeAreaLayoutGuide.bottomAnchor),
+            photoCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             photoCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             photoCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             photoCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
@@ -134,38 +86,21 @@ class PhotosViewController: UIViewController, UINavigationBarDelegate {
     }
 }
 
-extension PhotosViewController: ImageLibrarySubscriber {
-
-    func receive(images: [UIImage]) {
-        dataSource = images
-        photoCollectionView.reloadData()
-    }
-}
-
 extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return photos.count
-        if let rows = dataSource?.count {
-            return rows
-        } else {
-            return 0
-        }
+        return publisherImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellReuseIdentifiers.photos.rawValue, for: indexPath) as! PhotosCollectionViewCell
-//        cell.photoImageView.image = photos[indexPath.item].image
-//        return cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellReuseIdentifiers.photos.rawValue, for: indexPath) as! PhotosCollectionViewCell
-        if let dataSource = dataSource {
-            cell.photoImageView.image = dataSource[indexPath.row]
-            return cell
-        } else {
-            print("Some thing wrong!")
-            return cell
-        }
+                cell.photoImageView.image = publisherImages[indexPath.row]
+                return cell
     }
 }
 
@@ -190,3 +125,28 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout {
         return 1
     }
 }
+
+extension PhotosViewController: ImageLibrarySubscriber {
+    
+    func receive(images: [UIImage]) {
+        let startTime = CFAbsoluteTimeGetCurrent()
+        self.imageProcessor.processImagesOnThread(sourceImages: images, filter: .chrome, qos: .utility, completion: { images in
+            DispatchQueue.main.async {
+                images.forEach {
+                    guard let img = $0 else { return }
+                    self.publisherImages.append(UIImage(cgImage: img))
+                }
+                let finishTime = CFAbsoluteTimeGetCurrent()
+                var time = finishTime - startTime
+                print("time: \(time)")
+                self.photoCollectionView.reloadData()
+                // when filter: .chrome, qos: .utility – time: 25.908015966415405
+                // when filter: .noir, qos: .utility – time: 36.0049329996109
+                // when filter: .chrome, qos: .background – time: 115.93350791931152
+                // when filter: .chrome, qos: .userInitiated – time: 39.15327799320221
+            }
+        })
+    }
+}
+
+// 
